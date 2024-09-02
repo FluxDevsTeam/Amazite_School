@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.montaga {
+  font-family: 'Montaga', serif;
+}
+.inter {
+  font-family: 'Inter', sans-serif;
+}
