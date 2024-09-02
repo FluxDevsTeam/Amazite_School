@@ -65,7 +65,10 @@ const SideBar = () => {
                 Contact us
               </NavLink>
             </li>
-            <SocialIcons />
+            <SocialIcons
+              className="text-[20px] gap-4 flex"
+              imgClassName="w-[20px] h-[20px]"
+            />
           </ul>
         </div>
       </div>
