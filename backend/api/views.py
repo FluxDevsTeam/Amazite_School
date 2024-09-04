@@ -122,7 +122,7 @@ def apply(request):
         send_mail(
             owner_subject,
             owner_message,
-            'chisomzzy1@gmail.com@gmail.com',
+            'chisomzzy1@gmail.com',
             ['chisomzzy1@gmail.com'],
         )
 
