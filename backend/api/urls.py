@@ -13,4 +13,7 @@ urlpatterns = [
     path('news-list/', views.news_list, name='news-list'),
     path('update-news/<str:pk>/', views.update_news, name='update-news'),
     path('delete-news/<str:pk>/', views.delete_news, name='delete-news'),
+    
+    #this is for the application form
+    path('apply/', views.apply, name='apply'),
 ]
