@@ -37,7 +37,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
     
     class Meta:
         model=User
-        fields=('username', 'email', 'password','password2')
+        fields=('id', 'username', 'email', 'password','password2')
 
     def validate(self, data):
         if data['password'] !=data['password2']:
@@ -79,3 +79,38 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         }
         
         
+
+class UserUpdateSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True, required=False, style={'input_type': 'password'}, allow_blank=True)
+    password2 = serializers.CharField(write_only=True, required=False, style={'input_type': 'password'}, allow_blank=True)
+
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email', 'password', 'password2')
+
+    def validate(self, data):
+        if data.get('password') and data.get('password2'):
+            if data['password'] != data['password2']:
+                raise ValidationError({"message": "Passwords must match"})
+        
+        # Ensure username and email uniqueness, excluding the current user
+        username = data.get('username', None)
+        if User.objects.filter(username=data['username']).exclude(pk=self.instance.pk).exists():
+            raise ValidationError({"message": "Username already exists"})
+        email = data.get('email', None)
+        if User.objects.filter(email=data['email']).exclude(pk=self.instance.pk).exists():
+            raise ValidationError({"message": "Email already exists"})
+
+        return data
+
+    def update(self, instance, validated_data):
+        instance.username = validated_data.get('username', instance.username)
+        instance.email = validated_data.get('email', instance.email)
+
+        password = validated_data.get('password', None)
+        if password:
+            instance.set_password(password)
+
+        instance.save()
+
+        return instance

@@ -3,19 +3,19 @@ from django.shortcuts import render, get_object_or_404
 from event_and_award.models import Events
 from news_and_stories.models import News
 from form.models import ApplicationForm
-# from account.models import User
+from account.models import User
 from rest_framework.decorators import api_view,permission_classes
 from django.core.mail import send_mail
-from .serializers import EventSerializer, NewSerializer,ApplicationFormSerializer,UserRegistrationSerializer
+from .serializers import EventSerializer, NewSerializer,ApplicationFormSerializer,UserRegistrationSerializer,UserUpdateSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticated
-
+from rest_framework.permissions import IsAdminUser,IsAuthenticated,IsAuthenticatedOrReadOnly
+from .permissions import IsAdminOrOwner
 
 # THIS IS THE VIEWS FOR THE EVENTS
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAdminUser])
 def create_events(request):
     serializer = EventSerializer(data=request.data)
     if serializer.is_valid():
@@ -26,6 +26,7 @@ def create_events(request):
 
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticatedOrReadOnly])
 def event_list(request):
     events = Events.objects.all()
     res_per_page = 6
@@ -37,6 +38,7 @@ def event_list(request):
 
 
 @api_view(['PUT'])
+@permission_classes([IsAdminUser])
 def update_events(request, pk):
     try:
         events = Events.objects.get(pk=pk)
@@ -52,6 +54,7 @@ def update_events(request, pk):
 
 
 @api_view(['DELETE'])
+@permission_classes([IsAdminUser])
 def delete_events(request, pk):
     events = get_object_or_404(Events, pk=pk)
     events.delete()
@@ -63,6 +66,7 @@ def delete_events(request, pk):
 
 
 @api_view(['POST'])
+@permission_classes([IsAdminUser])
 def create_news(request):
     serializer = NewSerializer(data=request.data)
     if serializer.is_valid():
@@ -74,6 +78,7 @@ def create_news(request):
 
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def news_list(request):
     news = News.objects.all()
     res_per_page = 6
@@ -85,6 +90,7 @@ def news_list(request):
 
 
 @api_view(['PUT'])
+@permission_classes([IsAdminUser])
 def update_news(request, pk):
     try:
         news = News.objects.get(pk=pk)
@@ -100,14 +106,15 @@ def update_news(request, pk):
 
 
 @api_view(['DELETE'])
+@permission_classes([IsAdminUser])
 def delete_news(request, pk):
     news = get_object_or_404(News, pk=pk)
     news.delete()
     return Response({"message": f" The topic:{news.title} was deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
 
 
-#Remember to work on the email from here
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def apply(request):
     serializer=ApplicationFormSerializer(data=request.data)
     if serializer.is_valid():
@@ -156,3 +163,42 @@ def register_user(request):
             "access": data['access'],
         }, status=status.HTTP_201_CREATED)
     return Response(serializer.errors)
+
+
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def update_user(request,pk):
+    try:
+        user=User.objects.get(pk=pk)
+    except User.DoesNotExist:
+        return Response({"error":"user not found"}, status=status.HTTP_404_NOT_FOUND)
+    
+    if request.user != user or user.is_staff:
+        return Response("you don't have permission to update this user", status=status.HTTP_403_FORBIDDEN)
+    
+    serializer=UserUpdateSerializer(user, data=request.data, partial=True)
+
+    if serializer.is_valid():
+        serializer.save()
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['DELETE'])
+@permission_classes([IsAdminOrOwner,IsAuthenticated])
+def delete_user(request, pk):
+    try:
+        user=User.objects.get(pk=pk)
+    except User.DoesNotExist:
+        return Response({'message': "User not found"}, status=status.HTTP_404_NOT_FOUND)
+    
+    user.delete()
+    return Response("User deleted successfully", status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['GET'])
+def list_users(request):
+    user=User.objects.all()
+    serializer=UserRegistrationSerializer(user,many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
