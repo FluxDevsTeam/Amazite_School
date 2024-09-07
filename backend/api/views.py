@@ -3,17 +3,19 @@ from django.shortcuts import render, get_object_or_404
 from event_and_award.models import Events
 from news_and_stories.models import News
 from form.models import ApplicationForm
-from rest_framework.decorators import api_view
+# from account.models import User
+from rest_framework.decorators import api_view,permission_classes
 from django.core.mail import send_mail
-from .serializers import EventSerializer, NewSerializer,ApplicationFormSerializer
+from .serializers import EventSerializer, NewSerializer,ApplicationFormSerializer,UserRegistrationSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import IsAuthenticated
 
 
 # THIS IS THE VIEWS FOR THE EVENTS
 @api_view(['POST'])
-# @permission_classes([IsAdminUser])
+@permission_classes([IsAuthenticated])
 def create_events(request):
     serializer = EventSerializer(data=request.data)
     if serializer.is_valid():
@@ -142,3 +144,15 @@ def apply(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+@api_view(['POST'])
+def register_user(request):
+    serializer=UserRegistrationSerializer(data=request.data)
+    if serializer.is_valid():
+        data=serializer.save()
+        return Response({
+            "message": "User registered successfully",
+            "refresh":data['refresh'],
+            "access": data['access'],
+        }, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors)

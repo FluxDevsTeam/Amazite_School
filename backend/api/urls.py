@@ -16,4 +16,5 @@ urlpatterns = [
     
     #this is for the application form
     path('apply/', views.apply, name='apply'),
+    path('register/',views.register_user, name='register'),
 ]
