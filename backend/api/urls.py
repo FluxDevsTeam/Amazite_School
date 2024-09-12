@@ -17,6 +17,7 @@ urlpatterns = [
     #this is for the application form
     path('apply/', views.apply, name='apply'),
     path('register/',views.register_user, name='register'),
+    path('logout/', views.logout, name='logout'),
     path('users/<int:pk>/update/', views.update_user, name='update_user'),
     path('users/<int:pk>/delete/', views.delete_user, name='delete_user'),
     path('users/', views.list_users, name='list_users'),

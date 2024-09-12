@@ -12,6 +12,7 @@ from rest_framework import status
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAdminUser,IsAuthenticated,IsAuthenticatedOrReadOnly
 from .permissions import IsAdminOrOwner
+from rest_framework_simplejwt.tokens import RefreshToken
 
 # THIS IS THE VIEWS FOR THE EVENTS
 @api_view(['POST'])
@@ -165,6 +166,22 @@ def register_user(request):
     return Response(serializer.errors)
 
 
+@permission_classes([IsAuthenticated])
+@api_view(['POST'])
+def logout(request):
+    try:
+        refresh_token=request.data.get("refresh")
+        if refresh_token:
+            token=RefreshToken(refresh_token)
+            token.blacklist()
+            return Response({"detail": "logout successful"}, status=status.HTTP_205_RESET_CONTENT)
+        else:
+            return Response({"detail": "Refresh token required"}, status=status.HTTP_400_BAD_REQUEST)
+    except Exception as e:
+        return Response({"error": "Something went wrong.", "details": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+
+
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def update_user(request,pk):
@@ -192,6 +209,9 @@ def delete_user(request, pk):
         user=User.objects.get(pk=pk)
     except User.DoesNotExist:
         return Response({'message': "User not found"}, status=status.HTTP_404_NOT_FOUND)
+    
+    if request.user !=user or user.is_staff:
+        return Response("you can't delete this user", status=status.HTTP_403_FORBIDDEN)
     
     user.delete()
     return Response("User deleted successfully", status=status.HTTP_204_NO_CONTENT)

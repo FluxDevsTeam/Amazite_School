@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'event_and_award',
     'form',
     'account',
-    
+    'rest_framework_simplejwt.token_blacklist',
     'api',
     'drf_yasg',
 

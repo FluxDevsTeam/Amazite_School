@@ -29,9 +29,9 @@ schema_view = get_schema_view(
     openapi.Info(
         title="My API",
         default_version='v1',
-        description="Test description",
+        description="This is a RESTful API for a school website",
         terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="contact@myapi.local"),
+        contact=openapi.Contact(email="chisomzzy1@mygmail.com"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,
