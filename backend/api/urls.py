@@ -1,6 +1,9 @@
 from django.urls import path
 from . import views
 
+
+
+
 urlpatterns = [
     # urls for event and awards
     path('create-events/', views.create_events, name='create-events'),
@@ -22,3 +25,4 @@ urlpatterns = [
     path('users/<int:pk>/delete/', views.delete_user, name='delete_user'),
     path('users/', views.list_users, name='list_users'),
 ]
+

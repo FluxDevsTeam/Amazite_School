@@ -13,21 +13,35 @@ User=get_user_model()
 
 
 class EventSerializer(serializers.ModelSerializer):
+    image_url=serializers.SerializerMethodField()
     class Meta:
         model = Events
-        fields = ['id', 'title', 'body', 'image']
+        fields = ['id', 'title', 'body', 'image_url']
+
+    def get_image_url(self,obj):
+        request=self.context.get('request')
+        image_url=obj.image.url
+        return request.build_absolute_uri(image_url)
 
 
 class NewSerializer(serializers.ModelSerializer):
+    image_url=serializers.SerializerMethodField()
     class Meta:
         model = News
-        fields = ['id', 'title', 'body', 'image']
+        fields = ['id', 'title', 'body', 'image_url']
+    
+    def get_image_url(self,obj):
+        request=self.context.get('request')
+        image_url=obj.image.url
+        return request.build_absolute_uri(image_url)
+
 
 
 class ApplicationFormSerializer(serializers.ModelSerializer):
     class Meta:
         model=ApplicationForm
         fields="__all__"
+
 
 
 class UserRegistrationSerializer(serializers.ModelSerializer):

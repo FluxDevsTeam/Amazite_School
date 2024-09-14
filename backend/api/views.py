@@ -29,13 +29,19 @@ def create_events(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticatedOrReadOnly])
 def event_list(request):
-    events = Events.objects.all()
+    events = Events.objects.all().order_by('title')  # Order the queryset
     res_per_page = 6
     paginator = PageNumberPagination()
     paginator.page_size = res_per_page
     queryset = paginator.paginate_queryset(events, request)
-    serializer = EventSerializer(queryset, many=True)
-    return Response({"resperpage": res_per_page, "data": serializer.data}, status=status.HTTP_200_OK)
+    serializer = EventSerializer(queryset, many=True, context={'request': request})
+    return Response({
+        "resperpage": res_per_page,
+        "data": serializer.data,
+        "count": paginator.page.paginator.count,  # Include the total count of items
+        "next": paginator.get_next_link(),  # Include the URL for the next page
+        "previous": paginator.get_previous_link()  # Include the URL for the previous page
+    }, status=status.HTTP_200_OK)
 
 
 @api_view(['PUT'])
@@ -86,7 +92,7 @@ def news_list(request):
     paginator = PageNumberPagination()
     paginator.page_size = res_per_page
     queryset = paginator.paginate_queryset(news, request)
-    serializer = NewSerializer(queryset, many=True)
+    serializer = NewSerializer(queryset, many=True,context={'request':request})
     return Response({"resperpage": res_per_page, "data": serializer.data}, status=status.HTTP_200_OK)
 
 
