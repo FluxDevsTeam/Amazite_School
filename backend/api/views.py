@@ -34,6 +34,8 @@ def event_list(request):
     paginator = PageNumberPagination()
     paginator.page_size = res_per_page
     queryset = paginator.paginate_queryset(events, request)
+
+    #serializing and passing the request object to the serializer
     serializer = EventSerializer(queryset, many=True, context={'request': request})
     return Response({
         "resperpage": res_per_page,
