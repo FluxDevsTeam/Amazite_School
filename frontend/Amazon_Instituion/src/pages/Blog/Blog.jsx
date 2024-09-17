@@ -1,5 +1,7 @@
 import Articles from "./Articles";
+import News from "./news";
 import Events from "./Events";
+import Socials from "./socials";
 // import img1 from "img1.png";
 
 const Blog = () => {
@@ -24,6 +26,8 @@ const Blog = () => {
       </div>
       <Articles />
       <Events />
+      <News />
+      <Socials />
     </div>
   );
 };
