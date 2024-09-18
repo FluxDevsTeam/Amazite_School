@@ -1,8 +1,19 @@
-# React + Vite
+once you copy the project url from github, then run this code accordingly in your VScode terminal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+git clone the-url-you-copy-from-github
 
-Currently, two official plugins are available:
+cd amazite_school
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+git checkout frontend
+
+cd frontend
+
+cd Amazon_instituion
+
+npm install
+
+create your own branch by running the below command
+
+git checkout -b you-branch-name
+
+confirm if you are now checkout to the newly created branch, if so? Happy coding
