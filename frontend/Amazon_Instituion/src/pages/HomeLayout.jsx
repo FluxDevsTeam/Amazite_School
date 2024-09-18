@@ -6,7 +6,7 @@ const HomeLayout = () => {
     <div className="mx-auto max-w-[1280px] w-full min-h-screen flex flex-col justify-between">
       <Navbar />
       <SideBar />
-      <main className="px-8 flex-1">
+      <main className="flex-1">
         <Outlet />
       </main>
       <Footer />
