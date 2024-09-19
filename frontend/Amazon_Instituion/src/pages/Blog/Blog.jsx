@@ -16,11 +16,11 @@ const Blog = () => {
       </div>
       <div className="text-center w">
         <input
-          className="p-2 mr-2  rounded-lg border"
+          className="p-2 mr-2 mb-2  rounded-lg border"
           type="email"
           placeholder="Enter email address"
         />
-        <button className="bg-teal-600 text-white p-1 px-2 rounded-md">
+        <button className="bg-teal-600 text-white p-1 my- px-2 rounded-md">
           Enter
         </button>
       </div>

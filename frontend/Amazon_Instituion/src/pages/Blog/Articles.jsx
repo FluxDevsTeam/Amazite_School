@@ -1,6 +1,6 @@
 const Articles = () => {
   return (
-    <div className="md:flex flex-wrap md:col-span-2 justify-between items-center w-full m-auto my-10">
+    <div className="md:flex flex-wrap md:col-span-2 justify-between items-center w-full m-auto my-2">
       <div className="mr-10 flex-1 ">
         <img className="" src="./img1.png" alt="" />
       </div>
