@@ -12,3 +12,17 @@ body {
 .inter {
   font-family: 'Inter', sans-serif;
 }
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* .gradient {
+  background: linear-gradient(
+    to right,
+    #fd3032 0%,
+    #1a3659 50%,
+    #82d5dc 100%,
+    #e4dfdf 40%
+  );
+} */
