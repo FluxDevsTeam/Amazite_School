@@ -1,11 +1,6 @@
-import Articles from "./Articles";
-import News from "./news";
-import Events from "./Events";
-import Socials from "./socials";
-// import img1 from "img1.png";
-
 const Blog = () => {
   return (
+<<<<<<< HEAD
     <div className="w-10/12 m-auto my-10">
       <div className="text-center tracking-wide leading-10">
         <div className="text-xl text-teal-600 ">
@@ -28,6 +23,10 @@ const Blog = () => {
       <Events />
       <News />
       <Socials />
+=======
+    <div className="text-8xl text-teal-600 flex items-center justify-center">
+      Blog
+>>>>>>> 6d429fed7e374add53b716c608cf15ea3bac9904
     </div>
   );
 };
