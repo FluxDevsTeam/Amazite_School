@@ -1,6 +1,10 @@
+import Articles from "./Articles";
+import Events from "./Events";
+import News from "./news";
+import Socials from "./socials";
+import Datas from "./data/data";
 const Blog = () => {
   return (
-<<<<<<< HEAD
     <div className="w-10/12 m-auto my-10">
       <div className="text-center tracking-wide leading-10">
         <div className="text-xl text-teal-600 ">
@@ -23,10 +27,10 @@ const Blog = () => {
       <Events />
       <News />
       <Socials />
-=======
-    <div className="text-8xl text-teal-600 flex items-center justify-center">
-      Blog
->>>>>>> 6d429fed7e374add53b716c608cf15ea3bac9904
+
+      {/* <div className="text-8xl text-teal-600 flex items-center justify-center">
+        Blog
+      </div> */}
     </div>
   );
 };
