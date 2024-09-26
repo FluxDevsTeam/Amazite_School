@@ -3,9 +3,9 @@ from django.contrib.auth.models import User
 
 
 class Gender(models.TextChoices):
-    MALE='Male'
-    FEMALE='Female'
-    OTHERS='Others'
+    MALE = 'Male'
+    FEMALE = 'Female'
+    OTHERS = 'Others'
 
 
 class Program(models.TextChoices):
@@ -53,19 +53,9 @@ class ApplicationForm(models.Model):
     start_date = models.DateTimeField(auto_now_add=True)
     application_type = models.CharField(max_length=50, choices=ApplicationType.choices)
 
-
-
     class Meta:
         verbose_name = 'ApplicationForm'
         verbose_name_plural = 'ApplicationForm'
 
     def __str__(self):
         return f"{self.first_name_of_student} {self.last_name_of_student}"
-
-
-
-
-
-
-
-    
