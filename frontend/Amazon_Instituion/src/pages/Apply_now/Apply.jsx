@@ -2,6 +2,11 @@ import { ApplicationDetails, ParentInfo, StudentInfo } from './_components';
 
 const Apply = () => {
   return (
+<<<<<<< HEAD
+    <div className="text-8xl text-teal-600 flex items-center justify-center">
+      Welcome
+    </div>
+=======
     <section className="w-full px-2 py-2  md:px-5 lg:px-12 md:py-10 ">
       <form
         className="bg-[#FFFFFF61] rounded-xl px-6 py-8 flex flex-col gap-14"
@@ -21,6 +26,7 @@ const Apply = () => {
         </div>
       </form>
     </section>
+>>>>>>> ed6da8cff0ee9434b68fa044008473ee1944f04d
   );
 };
 export default Apply;
