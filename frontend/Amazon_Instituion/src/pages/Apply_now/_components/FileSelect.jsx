@@ -1,4 +1,4 @@
-import Select from 'react-select';
+// import Select from 'react-select';
 import { useState } from 'react';
 
 const FileSelect = ({ arr, name, label, placeholder }) => {
