@@ -14,7 +14,7 @@ const About_us = () => {
           <h2 className="montaga  text-4xl  ">About Us</h2>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center gap-y-6 xl:gap-x-8">
+        <div className="flex flex-col lg:flex-row items-center gap-y-4 xl:gap-x-8">
           <div className="">
             <div className="relative rounded-[187px] md:rounded-t-[564px] md:h-[346px] md:w-[346px] h-[285px] w-[285px]">
               <img
@@ -59,7 +59,7 @@ const About_us = () => {
               </div>
             </div>
           </div>
-          <div className="text-[#363F40] w-full lg:w-[450px] md:w-[60%] text-center lg:text-start ">
+          <div className="text-[#363F40] w-full lg:w-[450px]  text-center lg:text-start ">
             <h4 className="text-lg md:text-xl lg:text-2xl">We are AIA</h4>
             <p className="text-sm md:text-lg ml-2">
               Amazite was founded on the belief that education should be

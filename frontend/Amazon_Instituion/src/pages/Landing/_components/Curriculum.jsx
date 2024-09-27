@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom';
 const Curriculum = () => {
   return (
     <Wrapper>
-      <div className="flex flex-col gap-10 items-center">
-        <div className="w-full text-center  flex justify-center">
+      <div className="flex flex-col gap-10 lg:items-center">
+        <div className="w-full text-center flex justify-center">
           <h2 className="text-[#EE5051] header font-semibold text-4xl ">
             Curriculum
           </h2>
@@ -18,7 +18,7 @@ const Curriculum = () => {
             return (
               <div
                 key={index}
-                className="w-[280px] hover:shadow-2xl rounded-[23px] h-[320px] hover:scale-105 duration-500 cursor-pointer"
+                className=" hover:shadow-2xl rounded-[23px] h-[320px] hover:scale-105 duration-500 cursor-pointer"
               >
                 <img
                   src={img}

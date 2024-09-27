@@ -4,16 +4,17 @@ import { FaArrowRight } from 'react-icons/fa6';
 const EventAndAward = () => {
   return (
     <div>
-      <div className="flex flex-col gap-10 items-center ">
-        <h2 className="montaga text-4xl ">Events and Award</h2>
-
+      <div className="flex flex-col gap-10 lg:items-center ">
+        <div className="text-center">
+          <h2 className="montaga text-4xl ">Events and Award</h2>
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-x-10 gap-y-5 ">
           {eventAndAward.map((item, index) => {
             const { img, title, desc } = item;
             return (
               <div
                 key={index}
-                className="w-[280px] hover:scale-105 duration-500 cursor-pointer hover:shadow-xl"
+                className=" hover:scale-105 duration-500 cursor-pointer hover:shadow-xl"
               >
                 <img
                   src={img}

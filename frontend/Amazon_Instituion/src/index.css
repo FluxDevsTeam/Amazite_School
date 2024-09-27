@@ -19,10 +19,7 @@ body {
 
 .gradient {
   background: rgb(77, 98, 229);
-  background: linear-gradient(
-    45deg,
-    rgba(77, 98, 229, 1) 0%,
-    rgba(191, 37, 51, 0.7399334733893557) 45.31%,
-    rgba(182, 240, 156, 1) 100%
-  );
+  background: linear-gradient(0deg, rgba(253, 48, 50, 0) 0%, #971d1e 100%),
+    linear-gradient(180deg, #82d5dc 0%, #467276 100%),
+    linear-gradient(180deg, #1a3659 0%, #3874bf 100%);
 }

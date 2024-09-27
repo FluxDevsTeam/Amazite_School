@@ -7,7 +7,7 @@ const FirstHero = () => {
     return index === 0 ? 5 : index === 1 ? 4 : index === 2 ? 7 : 3;
   };
   return (
-    <div className="min-h-[28vh] md:min-h-[38vh] gap-4 md:gap-10 xl:gap-10 lg:min-h-[80vh] gradient flex flex-col items-center py-6 px-4 xl:py-10">
+    <div className="min-h-[28vh] md:min-h-[38vh] gap-4 md:gap-10 xl:gap-10 lg:min-h-[50vh] gradient flex flex-col items-center pt-6 pb-16 px-4 xl:!py-10 ">
       <div className="flex">
         {imgAnim.map((item, index) => {
           const xRange = [0, 20 + (index + 4), -20 - (index + 10)];

@@ -4,16 +4,18 @@ import {
   FirstHero,
   EventAndAward,
   Testimony,
+  Subscribe,
 } from './_components';
 const Landing = () => {
   return (
-    <div className="">
+    <div className="flex flex-col gap-10">
       <FirstHero />
-      <section className="max-w-[1083px] flex-col gap-10 flex items-center mx-auto px-4 lg:px-0 py-8">
+      <section className="px-10 flex flex-col gap-10">
         <Curriculum />
         <EventAndAward />
         <About_us />
         <Testimony />
+        <Subscribe />
       </section>
     </div>
   );

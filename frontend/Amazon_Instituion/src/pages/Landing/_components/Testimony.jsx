@@ -10,18 +10,20 @@ const Testimony = () => {
           const { img, word, name } = item;
           return (
             <div className="flex gap-4 h-[180px] w-full max-w-[450px] ">
-              <div className="w-[40%] text-center">
+              <div className="w-[34%] text-center">
                 <img
                   src={img}
                   alt="image"
                   className="h-[60%] object-cover w-full rounded-t-[11px]"
                 />
-                <p className="font-bold text-lg xl:text-2xl text-[#363F40]">
+                <p className="font-bold text-sm md:text-lg xl:text-2xl text-[#363F40]">
                   {name}
                 </p>
               </div>
               <div className="w-[60%] flex flex-col gap-5">
-                <h5 className="text-sm md:text-lg  text-gray-500">{word}</h5>
+                <h5 className="text-sm md:text-lg lg:text-xl text-gray-500">
+                  {word}
+                </h5>
                 <Stars stars={index + 1 + 1.5} />
               </div>
             </div>
