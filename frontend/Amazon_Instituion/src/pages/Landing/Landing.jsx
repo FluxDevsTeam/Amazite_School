@@ -10,7 +10,7 @@ const Landing = () => {
   return (
     <div className="flex flex-col gap-10">
       <FirstHero />
-      <section className="px-10 flex flex-col gap-10">
+      <section className=" px-4 md:px-16 flex flex-col gap-10 ">
         <Curriculum />
         <EventAndAward />
         <About_us />
