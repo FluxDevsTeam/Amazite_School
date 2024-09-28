@@ -17,12 +17,9 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-/* .gradient {
-  background: linear-gradient(
-    to right,
-    #fd3032 0%,
-    #1a3659 50%,
-    #82d5dc 100%,
-    #e4dfdf 40%
-  );
-} */
+.gradient {
+  background: rgb(77, 98, 229);
+  background: linear-gradient(0deg, rgba(253, 48, 50, 0) 0%, #971d1e 100%),
+    linear-gradient(180deg, #82d5dc 0%, #467276 100%),
+    linear-gradient(180deg, #1a3659 0%, #3874bf 100%);
+}

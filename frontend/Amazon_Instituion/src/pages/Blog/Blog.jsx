@@ -1,7 +1,12 @@
-import SocialIcons from '../../components/SocialIcons';
 import Articles from './Articles';
 import Events from './Events';
-import News from './News';
+import News from './news';
+// import Socials from './socials';
+// import Datas from './data/data';
+import SocialIcons from '../../components/SocialIcons';
+// import Articles from './Articles';
+// import Events from './Events';
+// import News from './news';
 
 const Blog = () => {
   return (
@@ -26,6 +31,12 @@ const Blog = () => {
       <Articles />
       <Events />
       <News />
+      {/* <Socials /> */}
+
+      {/* <div className="text-8xl text-teal-600 flex items-center justify-center">
+        Blog
+      </div> */}
+
       <SocialIcons
         className="flex gap-5 text-[35px] mt-10 items-center justify-center"
         imgClassName="w-[35px] h-[35px]"

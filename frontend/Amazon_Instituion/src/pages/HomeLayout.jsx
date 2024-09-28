@@ -3,7 +3,7 @@ import { Navbar, Footer, SideBar } from '../components';
 
 const HomeLayout = () => {
   return (
-    <div className="mx-auto max-w-[1280px] w-full min-h-screen flex flex-col justify-between">
+    <div className="mx-auto max-w-[85rem] w-full min-h-screen flex flex-col justify-between">
       <Navbar />
       <SideBar />
       <main className="flex-1">

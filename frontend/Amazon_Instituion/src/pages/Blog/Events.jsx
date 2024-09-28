@@ -1,4 +1,4 @@
-import Datas from "./data/data";
+import Datas from './data/data';
 
 const Events = () => {
   return (
@@ -7,7 +7,7 @@ const Events = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4  ">
         {Datas.map((data) => (
           <div
-            className="m-1 p-2 shadow-lg transition hover:scale-105 cursor-pointer"
+            className="m-1 p-2 shadow-lg transition hover:scale-105 duration-500 cursor-pointer"
             key={data.id}
           >
             <img src={data.img} alt="" />
