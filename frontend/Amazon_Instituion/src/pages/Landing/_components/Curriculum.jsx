@@ -25,7 +25,7 @@ const Curriculum = () => {
                   alt="image"
                   className="h-[60%] w-full object-cover rounded-t-[23px]"
                 />
-                <div className="bg-white p-2 border-x-[#2FCFDC] h-[40%] justify-between flex flex-col rounded-b-[23px] border-b-[#2FCFDC] border-t-0 border-[2px] border-solid">
+                <div className="bg-white p-4 border-x-[#2FCFDC] h-[40%] justify-between flex flex-col rounded-b-[23px] border-b-[#2FCFDC] border-t-0 border-[2px] border-solid">
                   <h4 className="font-bold text-[#363F40] text-xl ">{title}</h4>
                   <NavLink
                     to="/curriculum"
