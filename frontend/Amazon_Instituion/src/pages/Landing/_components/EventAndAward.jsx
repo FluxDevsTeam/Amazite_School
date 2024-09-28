@@ -19,9 +19,9 @@ const EventAndAward = () => {
                 <img
                   src={img}
                   alt="image"
-                  className="h-1/2 w-full object-cover rounded-t-[23px]"
+                  className="h-[60%] w-full object-cover rounded-t-[23px]"
                 />
-                <div className="bg-white p-2 border-x-[#2FCFDC] h-[50%]  justify-between flex flex-col rounded-b-[23px]">
+                <div className="bg-white p-4 border-x-[#2FCFDC] h-[40%]  justify-between flex flex-col rounded-b-[23px]">
                   <h4 className="font-bold text-[#363F40] text-lg ">{title}</h4>
                   <p className="text-gray-500 text-xs font-medium">{desc}</p>
                   <NavLink
