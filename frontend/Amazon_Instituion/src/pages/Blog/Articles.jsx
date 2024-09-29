@@ -1,8 +1,8 @@
 const Articles = () => {
   return (
-    <div className="md:flex flex-wrap md:col-span-2 justify-between items-center w-full m-auto my-2">
+    <div className="md:flex flex-wrap md:col-span-2 justify-between items-start w-full m-auto my-2">
       <div className="mr-10 flex-1 ">
-        <img className="" src="./img1.png" alt="" />
+        <img src="./img1.png" alt="" className="rounded-xl" />
       </div>
       <div className="flex-1 m-4 text-center md:text-left ">
         <p className="text-xl pb-4">Most recent Article </p>

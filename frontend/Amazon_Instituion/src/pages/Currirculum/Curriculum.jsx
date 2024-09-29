@@ -1,5 +1,5 @@
-import Bottom from "./bottom";
-import Course from "./Course";
+import Bottom from './bottom';
+import Course from './Course';
 
 const Curriculum = () => {
   return (
@@ -17,8 +17,8 @@ const Curriculum = () => {
           {/* <p className="absolute top-[300px] bg-blue-50 b">hhhhh</p> */}
         </div>
         <div className="flex-1 my-4 m-auto w-3/4 lg:text-4xl text-center md:text-left">
-          <h4 className="text-red-400">At Amazite Int' Academy</h4>
-          <p className="text-lg lg:text-4xl ">
+          <h4 className="text-red-400">At Amazite Int'l Academy</h4>
+          <p className=" text-sm md:text-lg lg:text-2xl ">
             Our Curriculum for Kindergarten through Grade % covers a diverse
             range of subjects build a solid foundation and prepare for the
             future academic success
