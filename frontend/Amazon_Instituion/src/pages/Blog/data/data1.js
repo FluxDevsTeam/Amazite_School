@@ -1,171 +1,171 @@
 export const Datas = [
   {
     id: 1,
-    img: "img5.png",
-    title: "Basic Mathematics",
+    img: 'img5.png',
+    title: 'Basic Mathematics',
   },
   {
     id: 2,
-    img: "img6.png",
-    title: "Identification of shapes and Objects",
+    img: 'img6.png',
+    title: 'Identification of shapes and Objects',
   },
   {
     id: 3,
-    img: "img7.png",
-    title: "English phonics and word recognition",
+    img: 'img7.png',
+    title: 'English phonics and word recognition',
   },
   {
     id: 1,
-    img: "img5.png",
-    title: "Basic Mathematics",
+    img: 'img5.png',
+    title: 'Basic Mathematics',
   },
   {
     id: 2,
-    img: "img6.png",
-    title: "Identification of shapes and Objects",
+    img: 'img6.png',
+    title: 'Identification of shapes and Objects',
   },
   {
     id: 3,
-    img: "img7.png",
-    title: "English phonics and word recognition",
+    img: 'img7.png',
+    title: 'English phonics and word recognition',
   },
 ];
 
 export const Datas1 = [
   {
     id: 4,
-    img1: "img8.png",
-    title1: "Mathematics: Addition, Subtraction, e.t.c",
+    img: 'img8.png',
+    title: 'Mathematics: Addition, Subtraction, e.t.c',
   },
   {
     id: 5,
-    img1: "img9.png",
-    title1: "English Language: Vocabulary Building",
+    img: 'img9.png',
+    title: 'English Language: Vocabulary Building',
   },
   {
     id: 6,
-    img1: "img10.png",
-    title1: "Social Studies",
+    img: 'img10.png',
+    title: 'Social Studies',
   },
   {
     id: 4,
-    img1: "img8.png",
-    title1: "Mathematics: Addition, Subtraction, e.t.c",
+    img: 'img8.png',
+    title: 'Mathematics: Addition, Subtraction, e.t.c',
   },
   {
     id: 5,
-    img1: "img9.png",
-    title1: "English Language: Vocabulary Building",
+    img: 'img9.png',
+    title: 'English Language: Vocabulary Building',
   },
   {
     id: 6,
-    img1: "img10.png",
-    title1: "Social Studies",
+    img: 'img10.png',
+    title: 'Social Studies',
   },
 ];
 
 export const Datas2 = [
   {
     id: 7,
-    img2: "img11.png",
-    title2: "Mathematics",
+    img: 'img11.png',
+    title: 'Mathematics',
   },
   {
     id: 8,
-    img2: "img12.png",
-    title2: "Critical Thinking ",
+    img: 'img12.png',
+    title: 'Critical Thinking ',
   },
   {
     id: 9,
-    img2: "img13.png",
-    title2: "English Language",
+    img: 'img13.png',
+    title: 'English Language',
   },
   {
     id: 7,
-    img2: "img11.png",
-    title2: "Mathematics",
+    img: 'img11.png',
+    title: 'Mathematics',
   },
   {
     id: 8,
-    img2: "img12.png",
-    title2: "Critical Thinking ",
+    img: 'img12.png',
+    title: 'Critical Thinking ',
   },
   {
     id: 9,
-    img2: "img13.png",
-    title2: "English Language",
+    img: 'img13.png',
+    title: 'English Language',
   },
 ];
 
 export const Datas3 = [
   {
     id: 10,
-    img3: "img6.png",
-    title3: "Mathematics: Understanding fractions and their representation",
+    img: 'img6.png',
+    title: 'Mathematics: Understanding fractions and their representation',
   },
   {
     id: 11,
-    img3: "img7.png",
-    title3: "Science: Conversational fluency and writing longer text in french",
+    img: 'img7.png',
+    title: 'Science: Conversational fluency and writing longer text in french',
   },
   {
     id: 12,
-    img3: "img8.png",
-    title3: "French:Conversational fluency and writing longer text in french",
+    img: 'img8.png',
+    title: 'French:Conversational fluency and writing longer text in french',
   },
   {
     id: 10,
-    img3: "img6.png",
-    title3: "Mathematics: Understanding fractions and their representation",
+    img: 'img6.png',
+    title: 'Mathematics: Understanding fractions and their representation',
   },
   {
     id: 11,
-    img3: "img7.png",
-    title3: "Science: Conversational fluency and writing longer text in french",
+    img: 'img7.png',
+    title: 'Science: Conversational fluency and writing longer text in french',
   },
   {
     id: 12,
-    img3: "img8.png",
-    title3: "French:Conversational fluency and writing longer text in french",
+    img: 'img8.png',
+    title: 'French:Conversational fluency and writing longer text in french',
   },
 ];
 
 export const Datas4 = [
   {
     id: 13,
-    img4: "img9.png",
-    title4:
-      "English Language:Reading comprehension, writing essays and clear structure",
+    img: 'img9.png',
+    title:
+      'English Language:Reading comprehension, writing essays and clear structure',
   },
   {
     id: 14,
-    img4: "img10.png",
-    title4:
-      "French: Understanding French grammar, Exploring French-speaking culture",
+    img: 'img10.png',
+    title:
+      'French: Understanding French grammar, Exploring French-speaking culture',
   },
   {
     id: 15,
-    img4: "img13.png",
-    title4:
-      "Social-Studies: In-depth study of U.S history, significant event and movements e.t.c",
+    img: 'img13.png',
+    title:
+      'Social-Studies: In-depth study of U.S history, significant event and movements e.t.c',
   },
   {
     id: 13,
-    img4: "img9.png",
-    title4:
-      "English Language:Reading comprehension, writing essays and clear structure",
+    img: 'img9.png',
+    title:
+      'English Language:Reading comprehension, writing essays and clear structure',
   },
   {
     id: 14,
-    img4: "img10.png",
-    title4:
-      "French: Understanding French grammar, Exploring French-speaking culture",
+    img: 'img10.png',
+    title:
+      'French: Understanding French grammar, Exploring French-speaking culture',
   },
   {
     id: 15,
-    img4: "img13.png",
-    title4:
-      "Social-Studies: In-depth study of U.S history, significant event and movements e.t.c",
+    img: 'img13.png',
+    title:
+      'Social-Studies: In-depth study of U.S history, significant event and movements e.t.c',
   },
 ];
 
