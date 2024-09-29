@@ -87,7 +87,7 @@ const CourseCarousel = ({ courses }) => {
               <img
                 src={course.img}
                 alt={course.title}
-                className="w-full h-48 object-cover rounded-md mb-4"
+                className="w-full h-48 object-cover shadow-md transition hover:scale-105 rounded-md mb-4"
               />
               <h3 className="font-semibold text-lg mb-2">{course.title}</h3>
               <p className="text-sm mb-4">{course.blog}</p>
@@ -124,7 +124,7 @@ const CourseCarousel = ({ courses }) => {
               <img
                 src={course.img1}
                 alt={course.title}
-                className="w-full h-48 object-cover rounded-md mb-4"
+                className="w-full h-48 object-cover shadow-md transition hover:scale-105 rounded-md mb-4"
               />
               <h3 className="font-semibold text-lg mb-2">{course.title1}</h3>
               <p className="text-sm mb-4">{course.blog}</p>
@@ -161,7 +161,7 @@ const CourseCarousel = ({ courses }) => {
               <img
                 src={course.img2}
                 alt={course.title2}
-                className="w-full h-48 object-cover rounded-md mb-4"
+                className="w-full h-48 object-cover shadow-md transition hover:scale-105 rounded-md mb-4"
               />
               <h3 className="font-semibold text-lg mb-2">{course.title2}</h3>
               <p className="text-sm mb-4">{course.blog}</p>
@@ -198,7 +198,7 @@ const CourseCarousel = ({ courses }) => {
               <img
                 src={course.img3}
                 alt={course.title3}
-                className="w-full h-48 object-cover rounded-md mb-4"
+                className="w-full h-48 object-cover shadow-md transition hover:scale-105 rounded-md mb-4"
               />
               <h3 className="font-semibold text-lg mb-2">{course.title3}</h3>
               <p className="text-sm mb-4">{course.blog}</p>
@@ -235,7 +235,7 @@ const CourseCarousel = ({ courses }) => {
               <img
                 src={course.img4}
                 alt={course.title}
-                className="w-full h-48 object-cover rounded-md mb-4"
+                className="w-full h-48 object-cover shadow-md transition hover:scale-105 rounded-md mb-4"
               />
               <h3 className="font-semibold text-lg mb-2">{course.title4}</h3>
               <p className="text-sm mb-4">{course.blog}</p>
