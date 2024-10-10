@@ -4,15 +4,17 @@ from event_and_award.models import Events
 from news_and_stories.models import News
 from form.models import ApplicationForm
 from account.models import User
-from rest_framework.decorators import api_view,permission_classes
+from rest_framework.decorators import api_view, permission_classes
 from django.core.mail import send_mail
-from .serializers import EventSerializer, NewSerializer,ApplicationFormSerializer,UserRegistrationSerializer,UserUpdateSerializer
+from .serializers import EventSerializer, NewSerializer, ApplicationFormSerializer, UserRegistrationSerializer, \
+    UserUpdateSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAdminUser,IsAuthenticated,IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAdminUser, IsAuthenticated, IsAuthenticatedOrReadOnly
 from .permissions import IsAdminOrOwner
 from rest_framework_simplejwt.tokens import RefreshToken
+
 
 # THIS IS THE VIEWS FOR THE EVENTS
 @api_view(['POST'])
@@ -125,17 +127,17 @@ def delete_news(request, pk):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def apply(request):
-    serializer=ApplicationFormSerializer(data=request.data)
+    serializer = ApplicationFormSerializer(data=request.data)
     if serializer.is_valid():
-        application_form=serializer.save()
+        application_form = serializer.save()
 
-         # Email content for website owner
+        # Email content for website owner
         owner_subject = "New User Registration"
         owner_message = (
-        f"A new user has registered:\n\n"
-        f"Name: {application_form.first_name_of_student}\n"
-        f"Email: {application_form.email_of_student}\n"
-                
+            f"A new user has registered:\n\n"
+            f"Name: {application_form.first_name_of_student}\n"
+            f"Email: {application_form.email_of_student}\n"
+
         )
         send_mail(
             owner_subject,
@@ -143,7 +145,6 @@ def apply(request):
             'chisomzzy1@gmail.com',
             ['chisomzzy1@gmail.com'],
         )
-
 
         # Email content for the user
         user_subject = "Thank you for registering"
@@ -163,12 +164,12 @@ def apply(request):
 
 @api_view(['POST'])
 def register_user(request):
-    serializer=UserRegistrationSerializer(data=request.data)
+    serializer = UserRegistrationSerializer(data=request.data)
     if serializer.is_valid():
-        data=serializer.save()
+        data = serializer.save()
         return Response({
             "message": "User registered successfully",
-            "refresh":data['refresh'],
+            "refresh": data['refresh'],
             "access": data['access'],
         }, status=status.HTTP_201_CREATED)
     return Response(serializer.errors)
@@ -178,9 +179,9 @@ def register_user(request):
 @api_view(['POST'])
 def logout(request):
     try:
-        refresh_token=request.data.get("refresh")
+        refresh_token = request.data.get("refresh")
         if refresh_token:
-            token=RefreshToken(refresh_token)
+            token = RefreshToken(refresh_token)
             token.blacklist()
             return Response({"detail": "logout successful"}, status=status.HTTP_205_RESET_CONTENT)
         else:
@@ -189,19 +190,18 @@ def logout(request):
         return Response({"error": "Something went wrong.", "details": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
 
-
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
-def update_user(request,pk):
+def update_user(request, pk):
     try:
-        user=User.objects.get(pk=pk)
+        user = User.objects.get(pk=pk)
     except User.DoesNotExist:
-        return Response({"error":"user not found"}, status=status.HTTP_404_NOT_FOUND)
-    
+        return Response({"error": "user not found"}, status=status.HTTP_404_NOT_FOUND)
+
     if request.user != user or user.is_staff:
         return Response("you don't have permission to update this user", status=status.HTTP_403_FORBIDDEN)
-    
-    serializer=UserUpdateSerializer(user, data=request.data, partial=True)
+
+    serializer = UserUpdateSerializer(user, data=request.data, partial=True)
 
     if serializer.is_valid():
         serializer.save()
@@ -211,22 +211,22 @@ def update_user(request,pk):
 
 
 @api_view(['DELETE'])
-@permission_classes([IsAdminOrOwner,IsAuthenticated])
+@permission_classes([IsAdminOrOwner, IsAuthenticated])
 def delete_user(request, pk):
     try:
-        user=User.objects.get(pk=pk)
+        user = User.objects.get(pk=pk)
     except User.DoesNotExist:
         return Response({'message': "User not found"}, status=status.HTTP_404_NOT_FOUND)
-    
-    if request.user !=user or user.is_staff:
+
+    if request.user != user or user.is_staff:
         return Response("you can't delete this user", status=status.HTTP_403_FORBIDDEN)
-    
+
     user.delete()
     return Response("User deleted successfully", status=status.HTTP_204_NO_CONTENT)
 
 
 @api_view(['GET'])
 def list_users(request):
-    user=User.objects.all()
-    serializer=UserRegistrationSerializer(user,many=True)
+    user = User.objects.all()
+    serializer = UserRegistrationSerializer(user, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
