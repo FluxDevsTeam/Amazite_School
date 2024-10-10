@@ -29,11 +29,11 @@ from rest_framework_simplejwt.views import (
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="My API",
+        title="amazite academy",
         default_version='v1',
         description="This is a RESTful API for a school website",
         terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="chisomzzy1@mygmail.com"),
+        contact=openapi.Contact(email="suskidee@mygmail.com"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,
