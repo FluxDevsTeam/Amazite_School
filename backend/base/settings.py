@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG")
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["134.209.21.134"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -123,23 +123,23 @@ WSGI_APPLICATION = 'base.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv("NAME"),
-        'USER': os.getenv("USER"),
-        'PASSWORD': os.getenv("PASSWORD"),
-        'HOST': os.getenv("HOST"),
-        'PORT': os.getenv("PORT"),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': os.getenv("NAME"),
+#        'USER': os.getenv("USER"),
+#        'PASSWORD': os.getenv("PASSWORD"),
+#        'HOST': os.getenv("HOST"),
+#        'PORT': os.getenv("PORT"),
+#    }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
