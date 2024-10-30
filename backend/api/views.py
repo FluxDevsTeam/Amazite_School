@@ -46,6 +46,16 @@ def event_list(request):
         "next": paginator.get_next_link(),  # Include the URL for the next page
         "previous": paginator.get_previous_link()  # Include the URL for the previous page
     }, status=status.HTTP_200_OK)
+# detail
+@api_view(['GET'])
+def event_detail(request, event_id):
+    try:
+        event = Event.objects.get(pk=event_id)
+    except Event.DoesNotExist:
+        return Response({"error": "Event not found"}, status=status.HTTP_404_NOT_FOUND)
+
+    serializer = EventSerializer(event, context={'request': request})
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['PUT'])
@@ -99,6 +109,16 @@ def news_list(request):
     serializer = NewSerializer(queryset, many=True,context={'request':request})
     return Response({"resperpage": res_per_page, "data": serializer.data}, status=status.HTTP_200_OK)
 
+# detail
+@api_view(['GET'])
+def news_detail(request, news_id):
+    try:
+        news_article = News.objects.get(pk=news_id)
+    except News.DoesNotExist:
+        return Response({"error": "News article not found"}, status=status.HTTP_404_NOT_FOUND)
+
+    serializer = NewSerializer(news_article, context={'request': request})
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(['PUT'])
 @permission_classes([IsAdminUser])
