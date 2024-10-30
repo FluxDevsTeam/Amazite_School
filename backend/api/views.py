@@ -17,15 +17,15 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 
 # THIS IS THE VIEWS FOR THE EVENTS
-@api_view(['POST'])
-@permission_classes([IsAdminUser])
-def create_events(request):
-    serializer = EventSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response({"message": serializer.data}, status=status.HTTP_201_CREATED)
-    else:
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# @api_view(['POST'])
+# @permission_classes([IsAdminUser])
+# def create_events(request):
+#     serializer = EventSerializer(data=request.data)
+#     if serializer.is_valid():
+#         serializer.save()
+#         return Response({"message": serializer.data}, status=status.HTTP_201_CREATED)
+#     else:
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET'])
@@ -50,52 +50,52 @@ def event_list(request):
 @api_view(['GET'])
 def event_detail(request, event_id):
     try:
-        event = Event.objects.get(pk=event_id)
-    except Event.DoesNotExist:
+        event = Events.objects.get(pk=event_id)
+    except Events.DoesNotExist:
         return Response({"error": "Event not found"}, status=status.HTTP_404_NOT_FOUND)
 
     serializer = EventSerializer(event, context={'request': request})
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+#
+# @api_view(['PUT'])
+# @permission_classes([IsAdminUser])
+# def update_events(request, pk):
+#     try:
+#         events = Events.objects.get(pk=pk)
+#     except Events.DoesNotExist:
+#
+#         return Response({"detail": "details not found"}, status=status.HTTP_404_NOT_FOUND)
+#     serializer = EventSerializer(events, data=request.data, partial=True)
+#     if serializer.is_valid():
+#         serializer.save()
+#         return Response({"data": serializer.data}, status=status.HTTP_200_OK)
+#     else:
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['PUT'])
-@permission_classes([IsAdminUser])
-def update_events(request, pk):
-    try:
-        events = Events.objects.get(pk=pk)
-    except Events.DoesNotExist:
 
-        return Response({"detail": "details not found"}, status=status.HTTP_404_NOT_FOUND)
-    serializer = EventSerializer(events, data=request.data, partial=True)
-    if serializer.is_valid():
-        serializer.save()
-        return Response({"data": serializer.data}, status=status.HTTP_200_OK)
-    else:
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-@api_view(['DELETE'])
-@permission_classes([IsAdminUser])
-def delete_events(request, pk):
-    events = get_object_or_404(Events, pk=pk)
-    events.delete()
-    return Response({"message": f" The event :{events.title} was deleted successfully"},
-                    status=status.HTTP_204_NO_CONTENT)
+# @api_view(['DELETE'])
+# @permission_classes([IsAdminUser])
+# def delete_events(request, pk):
+#     events = get_object_or_404(Events, pk=pk)
+#     events.delete()
+#     return Response({"message": f" The event :{events.title} was deleted successfully"},
+#                     status=status.HTTP_204_NO_CONTENT)
 
 
 # THIS IS THE VIEWS FOR THE NEWS AND STORIES
 
 
-@api_view(['POST'])
-@permission_classes([IsAdminUser])
-def create_news(request):
-    serializer = NewSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response({"message": "News created successfully", "data": serializer.data},
-                        status=status.HTTP_201_CREATED)
-    else:
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# @api_view(['POST'])
+# @permission_classes([IsAdminUser])
+# def create_news(request):
+#     serializer = NewSerializer(data=request.data)
+#     if serializer.is_valid():
+#         serializer.save()
+#         return Response({"message": "News created successfully", "data": serializer.data},
+#                         status=status.HTTP_201_CREATED)
+#     else:
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET'])
@@ -120,28 +120,28 @@ def news_detail(request, news_id):
     serializer = NewSerializer(news_article, context={'request': request})
     return Response(serializer.data, status=status.HTTP_200_OK)
 
-@api_view(['PUT'])
-@permission_classes([IsAdminUser])
-def update_news(request, pk):
-    try:
-        news = News.objects.get(pk=pk)
-    except News.DoesNotExist:
+# @api_view(['PUT'])
+# @permission_classes([IsAdminUser])
+# def update_news(request, pk):
+#     try:
+#         news = News.objects.get(pk=pk)
+#     except News.DoesNotExist:
+#
+#         return Response({"detail": "details not found"}, status=status.HTTP_404_NOT_FOUND)
+#     serializer = NewSerializer(news, data=request.data, partial=True)
+#     if serializer.is_valid():
+#         serializer.save()
+#         return Response({"data": serializer.data}, status=status.HTTP_200_OK)
+#     else:
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        return Response({"detail": "details not found"}, status=status.HTTP_404_NOT_FOUND)
-    serializer = NewSerializer(news, data=request.data, partial=True)
-    if serializer.is_valid():
-        serializer.save()
-        return Response({"data": serializer.data}, status=status.HTTP_200_OK)
-    else:
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-@api_view(['DELETE'])
-@permission_classes([IsAdminUser])
-def delete_news(request, pk):
-    news = get_object_or_404(News, pk=pk)
-    news.delete()
-    return Response({"message": f" The topic:{news.title} was deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+# @api_view(['DELETE'])
+# @permission_classes([IsAdminUser])
+# def delete_news(request, pk):
+#     news = get_object_or_404(News, pk=pk)
+#     news.delete()
+#     return Response({"message": f" The topic:{news.title} was deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
 
 
 @api_view(['POST'])
@@ -180,72 +180,77 @@ def apply(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-@api_view(['POST'])
-def register_user(request):
-    serializer = UserRegistrationSerializer(data=request.data)
-    if serializer.is_valid():
-        data = serializer.save()
-        return Response({
-            "message": "User registered successfully",
-            "refresh": data['refresh'],
-            "access": data['access'],
-        }, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors)
-
-
-@permission_classes([IsAuthenticated])
-@api_view(['POST'])
-def logout(request):
-    try:
-        refresh_token = request.data.get("refresh")
-        if refresh_token:
-            token = RefreshToken(refresh_token)
-            token.blacklist()
-            return Response({"detail": "logout successful"}, status=status.HTTP_205_RESET_CONTENT)
-        else:
-            return Response({"detail": "Refresh token required"}, status=status.HTTP_400_BAD_REQUEST)
-    except Exception as e:
-        return Response({"error": "Something went wrong.", "details": str(e)}, status=status.HTTP_400_BAD_REQUEST)
-
-
-@api_view(['PUT'])
-@permission_classes([IsAuthenticated])
-def update_user(request, pk):
-    try:
-        user = User.objects.get(pk=pk)
-    except User.DoesNotExist:
-        return Response({"error": "user not found"}, status=status.HTTP_404_NOT_FOUND)
-
-    if request.user != user or user.is_staff:
-        return Response("you don't have permission to update this user", status=status.HTTP_403_FORBIDDEN)
-
-    serializer = UserUpdateSerializer(user, data=request.data, partial=True)
-
-    if serializer.is_valid():
-        serializer.save()
-
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-@api_view(['DELETE'])
-@permission_classes([IsAdminOrOwner, IsAuthenticated])
-def delete_user(request, pk):
-    try:
-        user = User.objects.get(pk=pk)
-    except User.DoesNotExist:
-        return Response({'message': "User not found"}, status=status.HTTP_404_NOT_FOUND)
-
-    if request.user != user or user.is_staff:
-        return Response("you can't delete this user", status=status.HTTP_403_FORBIDDEN)
-
-    user.delete()
-    return Response("User deleted successfully", status=status.HTTP_204_NO_CONTENT)
-
-
 @api_view(['GET'])
-def list_users(request):
-    user = User.objects.all()
-    serializer = UserRegistrationSerializer(user, many=True)
+def application_list(request):
+    applications = ApplicationForm.objects.all()
+    serializer = ApplicationFormSerializer(applications, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+# @api_view(['POST'])
+# def register_user(request):
+#     serializer = UserRegistrationSerializer(data=request.data)
+#     if serializer.is_valid():
+#         data = serializer.save()
+#         return Response({
+#             "message": "User registered successfully",
+#             "refresh": data['refresh'],
+#             "access": data['access'],
+#         }, status=status.HTTP_201_CREATED)
+#     return Response(serializer.errors)
+
+
+# @permission_classes([IsAuthenticated])
+# @api_view(['POST'])
+# def logout(request):
+#     try:
+#         refresh_token = request.data.get("refresh")
+#         if refresh_token:
+#             token = RefreshToken(refresh_token)
+#             token.blacklist()
+#             return Response({"detail": "logout successful"}, status=status.HTTP_205_RESET_CONTENT)
+#         else:
+#             return Response({"detail": "Refresh token required"}, status=status.HTTP_400_BAD_REQUEST)
+#     except Exception as e:
+#         return Response({"error": "Something went wrong.", "details": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+
+# @api_view(['PUT'])
+# @permission_classes([IsAuthenticated])
+# def update_user(request, pk):
+#     try:
+#         user = User.objects.get(pk=pk)
+#     except User.DoesNotExist:
+#         return Response({"error": "user not found"}, status=status.HTTP_404_NOT_FOUND)
+#
+#     if request.user != user or user.is_staff:
+#         return Response("you don't have permission to update this user", status=status.HTTP_403_FORBIDDEN)
+#
+#     serializer = UserUpdateSerializer(user, data=request.data, partial=True)
+#
+#     if serializer.is_valid():
+#         serializer.save()
+#
+#         return Response(serializer.data, status=status.HTTP_200_OK)
+#     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# @api_view(['DELETE'])
+# @permission_classes([IsAdminOrOwner, IsAuthenticated])
+# def delete_user(request, pk):
+#     try:
+#         user = User.objects.get(pk=pk)
+#     except User.DoesNotExist:
+#         return Response({'message': "User not found"}, status=status.HTTP_404_NOT_FOUND)
+#
+#     if request.user != user or user.is_staff:
+#         return Response("you can't delete this user", status=status.HTTP_403_FORBIDDEN)
+#
+#     user.delete()
+#     return Response("User deleted successfully", status=status.HTTP_204_NO_CONTENT)
+
+
+# @api_view(['GET'])
+# def list_users(request):
+#     user = User.objects.all()
+#     serializer = UserRegistrationSerializer(user, many=True)
+#     return Response(serializer.data, status=status.HTTP_200_OK)
