@@ -89,7 +89,7 @@ def create_news(request):
 
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticatedOrReadOnly])
 def news_list(request):
     news = News.objects.all()
     res_per_page = 6
@@ -125,7 +125,6 @@ def delete_news(request, pk):
 
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
 def apply(request):
     serializer = ApplicationFormSerializer(data=request.data)
     if serializer.is_valid():
