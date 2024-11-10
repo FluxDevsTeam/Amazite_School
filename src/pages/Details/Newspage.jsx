@@ -6,8 +6,7 @@ import SocialIcons from '../../components/SocialIcons';
 export default function Newspage(){
     const { id } = useParams();
     const [data, setData] = useState([]); 
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
+  
   
    
     const fetchData = async () => {

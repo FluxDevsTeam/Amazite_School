@@ -54,7 +54,7 @@ export default function Eventspage(){
           </div>
           <div className='md:my-8 space-y-4'><h1>Join the conversation</h1>
           <div className='flex space-x-8  '><img src={data.image_url} alt={data.title || "Image"} className='w-[56px] h-[56px] border rounded-full'/> 
-           <textarea placeholder='comment...'   className='md:w-[623px] md:h-[130px] border border-gray-500 p-4'/>
+           <textarea placeholder='comment....'   className='md:w-[623px] md:h-[130px] border border-gray-500 p-4'/>
           </div>
           </div>
         </div>

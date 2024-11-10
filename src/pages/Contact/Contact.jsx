@@ -1,7 +1,5 @@
 import SocialIcons from "../../components/SocialIcons";
 
-
-
 const Contact = () => {
   return (
     <div className=" flex flex-col items-center justify-center">

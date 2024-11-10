@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Navbar, Footer, SideBar } from '../components';
 
+
 const HomeLayout = () => {
   return (
     <div className="mx-auto max-w-[85rem] w-full min-h-screen flex flex-col justify-between">
